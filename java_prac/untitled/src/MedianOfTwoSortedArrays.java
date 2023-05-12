@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class MedianOfTwoSortedArrays {
+public class MedianOfTwoSortedArrays {
+
+
 }
