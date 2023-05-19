@@ -14,6 +14,15 @@ public class Fib {
         return fib(n, new HashMap<>());
     }
 
+    /**
+     *
+     * @param n
+     * @param memo
+     * @return fib output.
+     * We use overloading to have the optional memo parameter that we are calling when we call inside the method, but
+     * not in the actual method invocation. We could consider just invoking with an empty hash since there are no real
+     * optional params in Java
+     */
     private static int fib(int n, Map<Integer, Integer> memo) {
         if (memo.containsKey(n)) { return memo.get(n); }
         if (n <= 2) return 1;
@@ -26,6 +35,6 @@ public class Fib {
     System.out.println(fib(6));
     System.out.println(fib(7));
     System.out.println(fib(8));
-    System.out.println(fib(45));
+    System.out.println(fib(40)); // once we get to 50 i think we get above what an int is allowed to be so it shows a neg
     }
 }
