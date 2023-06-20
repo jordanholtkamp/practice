@@ -1,12 +1,17 @@
 package Dynamic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CanSum {
     private static boolean canSum(int targetSum, List<Integer> numbers) {
+        return canSum(targetSum, numbers, new HashMap<>());
+    }
 
+    private static boolean canSum(int targetSum, List<Integer> numbers, HashMap<Integer, Boolean> memo) {
         // base cases
+        if (memo.containsKey(targetSum)) { return memo.get(targetSum); }
         if (targetSum == 0) {
             return true;
         }
@@ -14,12 +19,13 @@ public class CanSum {
 
         for (int num : numbers) {
             int remainder = targetSum - num;
-            if (canSum(remainder, numbers)) {
+            if (canSum(remainder, numbers, memo)) {
+                memo.put(targetSum, true);
                 return true;
             }
         }
+        memo.put(targetSum, false);
         return false;
-
     }
 
     public static void main(String[] args) {
